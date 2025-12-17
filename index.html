@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jtools – Download Automation Tools</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f4f6f9;
+    --card: #ffffff;
+    --text: #333;
+    --muted: #555;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* HEADER */
+header {
+    background: var(--primary);
+    color: #fff;
+    padding: 45px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 38px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #cbd5e1;
+}
+
+/* LAYOUT */
+.container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+
+    /* ✅ CRITICAL FIX */
+    align-items: start;
+}
+
+/* CARD */
+.tool-card {
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    padding: 22px;
+}
+
+/* SUMMARY */
+.tool-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.tool-info {
+    max-width: 85%;
+}
+
+.tool-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.tool-short {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+    transition: transform 0.25s ease;
+}
+
+.tool-card.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* DETAILS */
+.tool-details {
+    display: none;
+    margin-top: 18px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 18px;
+}
+
+.tool-card.active .tool-details {
+    display: block;
+}
+
+.section-title {
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 15px;
+}
+
+.tool-details p,
+.tool-details li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+.tool-details ul {
+    padding-left: 20px;
+}
+
+/* DOWNLOAD */
+.download-btn {
+    margin-top: 18px;
+    display: inline-block;
+    padding: 12px 18px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.download-btn:hover {
+    background: #1e40af;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 60px;
+    text-align: center;
+    padding: 25px;
+    background: var(--primary);
+    color: #cbd5e1;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>jtools</h1>
+    <p>Offline automation & data processing tools build with AI – Free downloads</p>
+</header>
+
+<div class="container">
+<div class="tools-grid">
+
+<!-- TOOL 1 -->
+<div class="tool-card">
+    <div class="tool-summary">
+        <div class="tool-info">
+            <div class="tool-title">Generate Letters from Excel Data</div>
+            <div class="tool-short">
+                Automatically generate personalized MS Word documents using data stored in Excel.
+            </div>
+        </div>
+        <div class="arrow" onclick="toggleCard(this)">▼</div>
+    </div>
+
+    <div class="tool-details">
+        <div class="section-title">Problem</div>
+        <p>
+            Manually copying Excel data into Word letters is slow, repetitive,
+            and error-prone when handling many records.
+        </p>
+
+        <div class="section-title">Solution</div>
+        <p>
+            This tool generates multiple personalized Word documents
+            automatically using Excel data and a template.
+        </p>
+
+        <div class="section-title">Prerequisites</div>
+        <ul>
+            <li>Excel cells must contain plain text only</li>
+            <li>No formulas or calculated values</li>
+            <li>Word template must use placeholders like $1$, $2$, $3$</li>
+        </ul>
+    </div>
+
+    <a class="download-btn" href="tools/excel-to-docx.zip" download>
+        Download ZIP (1.18 MB)
+    </a>
+</div>
+
+<!-- TOOL 2 -->
+<div class="tool-card">
+    <div class="tool-summary">
+        <div class="tool-info">
+            <div class="tool-title">Docx Files to Excel Compiler</div>
+            <div class="tool-short">
+                Extract structured data from multiple Word forms into one Excel file.
+            </div>
+        </div>
+        <div class="arrow" onclick="toggleCard(this)">▼</div>
+    </div>
+
+    <div class="tool-details">
+        <div class="section-title">Problem</div>
+        <p>
+            Processing hundreds of DOCX files manually
+            is extremely time-consuming and inconsistent.
+        </p>
+
+        <div class="section-title">Solution</div>
+        <p>
+            This tool extracts content-control data
+            and consolidates it into a single Excel sheet.
+        </p>
+
+        <div class="section-title">Prerequisites</div>
+        <ul>
+            <li>Use Word Content Controls</li>
+            <li>Each control must have Title and Tag</li>
+            <li>Content controls must not be deleted</li>
+        </ul>
+    </div>
+
+    <a class="download-btn" href="tools/docx-to-excel.zip" download>
+        Download ZIP (1.75 MB)
+    </a>
+</div>
+
+<!-- TOOL 3 -->
+<div class="tool-card">
+    <div class="tool-summary">
+        <div class="tool-info">
+            <div class="tool-title">All Excel Files Compiler</div>
+            <div class="tool-short">
+                Combine multiple Excel files with the same structure into one output file.
+            </div>
+        </div>
+        <div class="arrow" onclick="toggleCard(this)">▼</div>
+    </div>
+
+    <div class="tool-details">
+        <div class="section-title">Problem</div>
+        <p>
+            Manually compiling data from many Excel files
+            takes significant time and effort.
+        </p>
+
+        <div class="section-title">Solution</div>
+        <p>
+            The tool automatically detects selected fields
+            and compiles them into one Excel file.
+        </p>
+
+        <div class="section-title">Prerequisites</div>
+        <ul>
+            <li>All Excel files must use identical field names</li>
+            <li>No duplicate columns in one sheet</li>
+            <li>Files must be .xlsx format</li>
+        </ul>
+    </div>
+
+    <a class="download-btn" href="tools/excel-compiler.zip" download>
+        Download ZIP (1.29 MB)
+    </a>
+</div>
+
+</div>
+</div>
+
+<footer>
+    © 2025 jtools | Built for productivity & automation | contact: getbkkk@outlook.com
+</footer>
+
+<script>
+function toggleCard(arrow) {
+    const card = arrow.closest(".tool-card");
+    card.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
